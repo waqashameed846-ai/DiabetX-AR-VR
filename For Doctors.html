@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Doctors - DiabetX | AI + VR Powered Diabetes Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --dark-blue: #1e3a8a;
+            --light-blue: #dbeafe;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            margin-top: -2px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin: 0 1rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .nav-link i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            padding: 0.75rem 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.6rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-login {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .btn-login:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            text-decoration: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-blue);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Why DiabetX Helps Section */
+        .why-section {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 4rem;
+        }
+
+        .why-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .why-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), #3b82f6);
+        }
+
+        .feature-icon {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .benefits-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .benefits-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-item p {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Dashboard Preview Section */
+        .dashboard-preview {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 4rem 2rem;
+            border-radius: var(--border-radius);
+            margin: 4rem 0;
+        }
+
+        .dashboard-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .dashboard-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .dashboard-visual {
+            background: linear-gradient(135deg, var(--primary-blue), #3b82f6);
+            border-radius: var(--border-radius);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-visual i {
+            font-size: 5rem;
+        }
+
+        .dashboard-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dashboard-feature {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .dashboard-feature i {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), #3b82f6);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta-section .section-title {
+            color: var(--white);
+        }
+
+        .cta-section .section-subtitle {
+            color: var(--light-blue);
+        }
+
+        .cta-button {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #0f172a;
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .footer-logo .tagline {
+            color: #cbd5e1;
+        }
+
+        .footer-description {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .contact-info {
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+            color: var(--primary-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #1e293b;
+            border-radius: 50%;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 1024px) {
+            .nav-menu {
+                gap: 0.5rem;
+            }
+            
+            .nav-item {
+                margin: 0 0.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 1rem 0;
+                width: 100%;
+            }
+
+            .nav-link {
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: var(--light-gray);
+                border-radius: 0;
+                width: 100%;
+                display: none;
+                padding: 0;
+            }
+
+            .dropdown.active {
+                display: block;
+            }
+
+            .dropdown-item {
+                padding: 0.8rem 1.5rem;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .btn-login, .btn-primary {
+                width: 80%;
+                text-align: center;
+                padding: 0.8rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid, .dashboard-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .benefits-grid, .dashboard-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-section">
+                <div class="logo">
+                    <span class="logo-text">DiabetX</span>
+                    <span class="tagline">AI + VR Powered Diabetes Care</span>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about us.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="who we server.html" class="nav-link">Who We Serve <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="For Patients.html" class="dropdown-item">For Patients</a>
+                        <a href="#" class="dropdown-item">For Doctors</a>
+                        <a href="For Hospitals & Clinics.html" class="dropdown-item">For Hospitals & Clinics</a>
+                        <a href="For Partners & Investors.html" class="dropdown-item">For Partners & Investors</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="how it work.html" class="nav-link">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="feature.html" class="nav-link">Features <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="ai  asstance.html" class="dropdown-item">AI Health Assistant</a>
+                        <a href="vr coching.html" class="dropdown-item">VR Coaching</a>
+                        <a href="#" class="dropdown-item">Rewards System</a>
+                        <a href="data dashboard.html" class="dropdown-item">Data Dashboard</a>
+                    </div>
+                </li>
+                
+                
+               
+                
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+                
+                <div class="nav-actions">
+                    <a href="#" class="btn-primary">Get Early Access</a>
+                </div>
+            </ul>
+
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">For Doctors</h1>
+                <p class="hero-subtitle">A powerful digital companion that enhances clinical care.</p>
+            </div>
+        </section>
+
+        <!-- Why DiabetX Helps Section -->
+        <section class="container">
+            <div class="why-section">
+                <div class="why-content">
+                    <h2>Why DiabetX Helps Doctors</h2>
+                    <p>Doctors often struggle with incomplete patient data, gaps in communication, and limited follow-up insights.</p>
+                    <p>DiabetX solves this by giving clinicians a clear, smart, updated picture of each patient's condition — in one place.</p>
+                </div>
+            </div>
+
+            <!-- Key Features Section -->
+            <div class="section-header">
+                <h2 class="section-title">Key Features for Healthcare Providers</h2>
+                <p class="section-subtitle">Comprehensive tools designed to enhance clinical decision-making and patient care</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Patient Data Dashboard -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Patient Data Dashboard</h3>
+                    <ul class="feature-list">
+                        <li>Track glucose trends</li>
+                        <li>View uploaded reports & assessments</li>
+                        <li>Monitor patterns and lifestyle changes</li>
+                    </ul>
+                </div>
+
+                <!-- AI-Driven Insights -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Driven Insights</h3>
+                    <ul class="feature-list">
+                        <li>Early risk alerts</li>
+                        <li>Treatment-support recommendations</li>
+                        <li>Patient adherence insights</li>
+                    </ul>
+                </div>
+
+                <!-- Remote Monitoring Tools -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <h3>Remote Monitoring Tools</h3>
+                    <ul class="feature-list">
+                        <li>Reduce unnecessary clinic visits</li>
+                        <li>Improve communication with patients</li>
+                        <li>Support chronic care more efficiently</li>
+                    </ul>
+                </div>
+
+                <!-- VR Programs for Patient Wellbeing -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3>VR Programs for Patient Wellbeing</h3>
+                    <ul class="feature-list">
+                        <li>Stress reduction</li>
+                        <li>Breathing exercises</li>
+                        <li>Motivation</li>
+                        <li>Light activity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Preview Section -->
+        <section class="container">
+            <div class="dashboard-preview">
+                <div class="dashboard-content">
+                    <h2>Comprehensive Patient Dashboard</h2>
+                    <div class="dashboard-visual">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <p>Get a complete overview of your patients' health with our intuitive dashboard that displays trends, alerts, and progress at a glance.</p>
+                    
+                    <div class="dashboard-features">
+                        <div class="dashboard-feature">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>Real-time Metrics</p>
+                        </div>
+                        <div class="dashboard-feature">
+                            <i class="fas fa-bell"></i>
+                            <p>Smart Alerts</p>
+                        </div>
+                        <div class="dashboard-feature">
+                            <i class="fas fa-file-medical"></i>
+                            <p>Report Integration</p>
+                        </div>
+                        <div class="dashboard-feature">
+                            <i class="fas fa-comments"></i>
+                            <p>Secure Messaging</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section style="background-color: var(--light-gray);">
+            <div class="container">
+                <div class="benefits-section">
+                    <div class="benefits-content">
+                        <h2>Benefits for Doctors</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <p>Save time on consultations</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                                <p>Improve patient adherence</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <p>Strengthen communication and trust</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <p>Deliver more informed decisions</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <p>Leverage data ethically and securely</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-primary">Explore Provider Solutions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ready to Enhance Your Clinical Practice?</h2>
+                    <p class="section-subtitle">Join healthcare providers who are transforming diabetes care with DiabetX</p>
+                </div>
+                <a href="#" class="btn-primary cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <span class="logo-text">DiabetX</span>
+                        <span class="tagline">AI + VR Powered Diabetes Care</span>
+                    </div>
+                </div>
+                <p class="footer-description">
+                    Empowering diabetic patients through AI-driven monitoring, VR coaching experiences, and 
+                    a blockchain-based reward ecosystem. Transforming healthcare, one habit at a time.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Navigation -->
+            <div class="footer-nav">
+                <h3 class="footer-heading">Quick Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Who We Serve</a></li>
+                    <li><a href="#">For Patients</a></li>
+                    <li><a href="#">For Doctors</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Product Features -->
+            <div class="footer-features">
+                <h3 class="footer-heading">Product Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#">AI Health Assistant</a></li>
+                    <li><a href="#">VR Lifestyle Coaching</a></li>
+                    <li><a href="#">Blood Sugar Tracking</a></li>
+                    <li><a href="#">Meal & Walking Reminders</a></li>
+                    <li><a href="#">Rewards & Token System</a></li>
+                    <li><a href="#">Doctor Dashboard</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div class="footer-resources">
+                <h3 class="footer-heading">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog / Health Tips</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Support Center</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <h3 class="footer-heading">Contact Information</h3>
+                <div class="contact-info">
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@diabetx.com</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        <span>+92 320 4513240</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-building"></i>
+                        <span>Company: Innovify XR</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Office: Lahore </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 DiabetX — All Rights Reserved. Powered by Innovify XR</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Toggle dropdowns on mobile
+        navItems.forEach(item => {
+            if (item.querySelector('.dropdown')) {
+                const navLink = item.querySelector('.nav-link');
+                
+                navLink.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = item.querySelector('.dropdown');
+                        dropdown.classList.toggle('active');
+                        
+                        // Rotate chevron icon
+                        const icon = navLink.querySelector('i');
+                        if (icon) {
+                            icon.classList.toggle('fa-chevron-down');
+                            icon.classList.toggle('fa-chevron-up');
+                        }
+                    }
+                });
+            }
+        });
+
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {
+                if (!e.target.closest('.navbar')) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    
+                    // Close all dropdowns
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                    
+                    // Reset all icons
+                    document.querySelectorAll('.nav-link i').forEach(icon => {
+                        if (icon.classList.contains('fa-chevron-up')) {
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    });
+                }
+            }
+        });
+
+        // Close menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                
+                // Close all dropdowns
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+                
+                // Reset all icons
+                document.querySelectorAll('.nav-link i').forEach(icon => {
+                    if (icon.classList.contains('fa-chevron-up')) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            }
+        });
+
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.textContent.trim() === 'For Doctors') {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
